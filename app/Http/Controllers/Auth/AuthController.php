@@ -1,9 +1,11 @@
 <?php namespace App\Http\Controllers\Auth;
 
+use App;
 use Illuminate\Routing\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
+
 
 /**
  * @Middleware("guest", except={"logout"})
@@ -43,7 +45,7 @@ class AuthController extends Controller {
 	/**
 	 * Handle a registration request for the application.
 	 *
-	 * @Post("auth/register")
+	 * @Post("auth/register", as="signup")
 	 *
 	 * @param  RegisterRequest  $request
 	 * @return Response
@@ -52,7 +54,7 @@ class AuthController extends Controller {
 	{
 		// Registration form is valid, create user...
 
-		$user = User::create($request->all());
+		$user = App\User::create($request->all());
 
 		$this->auth->login($user);
 

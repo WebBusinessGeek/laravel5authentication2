@@ -3,7 +3,13 @@
 
 @section('content')
 
-	{!! Form::open(['action'=>'AuthController@register']) !!}
+	@if($errors)
+		@foreach($errors->all() as $error)
+			<li>{{$error}}</li>
+		@endforeach
+	@endif
+
+	{!! Form::open(['route' => 'signup']) !!}
 
 		<div class="form-group">
 			{!! Form::label('email', 'Email: ') !!}
@@ -23,7 +29,7 @@
 			{!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'password one more time please')) !!}
 		</div>
 
-		{!! Form::button('Signup', array('class' => 'btn btn-primary')) !!}
+		{!! Form::submit('Signup', array('class' => 'btn btn-primary')) !!}
 
 		{!! Form::close() !!}
 

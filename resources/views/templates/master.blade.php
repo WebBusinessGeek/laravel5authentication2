@@ -17,6 +17,12 @@
       
       <h1>Hello, world!</h1>
 
+      @if(Auth::check())
+        {{Auth::user()->email}}
+      @else
+        {{'not logged in'}}
+      @endif
+
       @yield('content')
 
 
