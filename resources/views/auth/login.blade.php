@@ -19,7 +19,7 @@
 
 		
 
-		{!! Form::button('Login', array('class' => 'btn btn-primary')) !!}
+		{!! Form::submit('Login', array('class' => 'btn btn-primary')) !!}
 
 		{!! Form::close() !!}
 
