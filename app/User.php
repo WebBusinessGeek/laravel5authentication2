@@ -24,4 +24,10 @@ class User extends Model implements UserContract, CanResetPasswordContract {
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	protected $fillable = ['email', 'password'];
+
+	public function setPasswordAttribute($password){
+		$this->attributes['password'] = Hash::make($password);
+	}
+
 }

@@ -52,6 +52,8 @@ class AuthController extends Controller {
 	{
 		// Registration form is valid, create user...
 
+		$user = User::create($request->all());
+
 		$this->auth->login($user);
 
 		return redirect('/');

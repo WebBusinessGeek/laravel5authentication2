@@ -28,7 +28,7 @@ class HomeController extends Controller {
 	 * @Get("/test")
 	 */
 	public function test(){
-		return 'this is a test';
+		return 'this is a test my man';
 	}
 
 }
